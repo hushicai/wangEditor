@@ -15,11 +15,10 @@
     } else if (typeof module === "object" && typeof module.exports === "object") {
         // commonjs
 
-        // 引用 css —— webapck
-        window.wangEditorCssPath ? require(window.wangEditorCssPath) : require('../css/wangEditor.css');
+        // 交给外部构建工具去选择
+        // require('../css/wangEditor.css');
         module.exports = factory(
-            // 传入 jquery ，支持使用 npm 方式或者自己定义jquery的路径
-            window.wangEditorJQueryPath ? require(window.wangEditorJQueryPath) : require('jquery')
+          require('jquery')
         );
     } else {
         // 全局模式
